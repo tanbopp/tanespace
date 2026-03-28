@@ -319,12 +319,12 @@ export default function About() {
             Join us in building the Silk Road of Space.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link to="/mission" className="ts-btn ts-btn--primary">
+            <Link to="/missions/silk-road" className="ts-btn ts-btn--primary">
               Our Mission <Arrow />
             </Link>
-            <Link to="/gallery" className="ts-btn ts-btn--ghost">
-              View Gallery
-            </Link>
+            <a href="mailto:work.sultanrahmahtulloh@gmail.com" className="ts-btn ts-btn--ghost">
+              Contact
+            </a>
           </div>
         </div>
       </section>

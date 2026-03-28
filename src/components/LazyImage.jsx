@@ -1,24 +1,48 @@
 import { useEffect, useRef, useState } from 'react';
 
 /**
- * LazyImage — drop-in replacement for <img>.
- * • Loads only when scrolled within 400px of viewport (IntersectionObserver)
- * • For Unsplash: shows a tiny blurred placeholder first, transitions to full-res
- * • loading="lazy" + decoding="async" for browser-native deferral
- * • No wrapper element — renders a single <img> so existing CSS is unaffected
+ * LazyImage — responsive lazy loader with blurred placeholder.
+ * • Builds responsive srcset for Unsplash-hosted images (WebP + fallback)
+ * • Shows tiny blurred placeholder (w=30) until in-view
+ * • Uses <picture> so browser picks optimal format/resolution
+ * • Defers creating srcset until intersection to avoid extra network
  */
-function getPlaceholder(src) {
-  if (src && src.includes('unsplash.com')) {
-    return src.split('?')[0] + '?w=30&q=10';
-  }
-  return null;
+
+function isUnsplash(src) {
+  return src && src.includes('images.unsplash.com');
 }
 
-export default function LazyImage({ src, alt, className, style, ...rest }) {
-  const placeholder = getPlaceholder(src);
-  const [activeSrc, setActiveSrc] = useState(placeholder || src);
-  const [sharp, setSharp] = useState(!placeholder); // true once full-res loaded
+function baseUrl(src) {
+  return src ? src.split('?')[0] : src;
+}
+
+export default function LazyImage({
+  src,
+  alt = '',
+  className,
+  style,
+  widths = [400, 800, 1200, 1600, 1920],
+  sizes = '100vw',
+  quality = 80,
+  placeholderWidth = 30,
+  ...rest
+}) {
   const ref = useRef(null);
+  const [inView, setInView] = useState(false);
+  const [sharp, setSharp] = useState(!isUnsplash(src));
+
+  const base = baseUrl(src);
+  const placeholder = isUnsplash(src) ? `${base}?w=${placeholderWidth}&q=10&auto=format` : src;
+
+  // build srcset strings only for Unsplash (safe to add URL params)
+  const webpSrcSet = isUnsplash(src)
+    ? widths.map((w) => `${base}?w=${w}&q=${quality}&fm=webp ${w}w`).join(', ')
+    : null;
+  const fallbackSrcSet = isUnsplash(src)
+    ? widths.map((w) => `${base}?w=${w}&q=${quality} ${w}w`).join(', ')
+    : null;
+
+  const smallestFull = isUnsplash(src) ? `${base}?w=${widths[0]}&q=${quality}` : src;
 
   useEffect(() => {
     const el = ref.current;
@@ -26,7 +50,7 @@ export default function LazyImage({ src, alt, className, style, ...rest }) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setActiveSrc(src);
+          setInView(true);
           observer.disconnect();
         }
       },
@@ -37,24 +61,34 @@ export default function LazyImage({ src, alt, className, style, ...rest }) {
   }, [src]);
 
   return (
-    <img
-      ref={ref}
-      src={activeSrc}
-      alt={alt}
-      className={className}
-      loading="lazy"
-      decoding="async"
-      onLoad={(e) => {
-        // Only mark sharp once the full-res version finishes loading
-        if (e.currentTarget.src === src || !placeholder) setSharp(true);
-      }}
-      style={{
-        filter: sharp ? 'none' : 'blur(10px)',
-        transform: sharp ? 'none' : 'scale(1.03)',
-        transition: 'filter 0.5s ease, transform 0.5s ease',
-        ...style,
-      }}
-      {...rest}
-    />
+    <picture>
+      {inView && webpSrcSet && (
+        <source type="image/webp" srcSet={webpSrcSet} sizes={sizes} />
+      )}
+      {inView && fallbackSrcSet && (
+        <source srcSet={fallbackSrcSet} sizes={sizes} />
+      )}
+
+      <img
+        ref={ref}
+        src={inView ? smallestFull : placeholder}
+        srcSet={inView && fallbackSrcSet ? fallbackSrcSet : undefined}
+        alt={alt}
+        className={className}
+        loading={rest.fetchpriority === 'high' ? undefined : 'lazy'}
+        decoding="async"
+        onLoad={(e) => {
+          const cur = e.currentTarget;
+          if (cur && cur.src && cur.src.indexOf(`w=${placeholderWidth}`) === -1) setSharp(true);
+        }}
+        style={{
+          filter: sharp ? 'none' : 'blur(10px)',
+          transform: sharp ? 'none' : 'scale(1.03)',
+          transition: 'filter 0.45s ease, transform 0.45s ease',
+          ...style,
+        }}
+        {...rest}
+      />
+    </picture>
   );
 }
