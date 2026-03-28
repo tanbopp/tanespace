@@ -1,5 +1,6 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
+import LazyImage from '../components/LazyImage';
 
 const Arrow = () => (
   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
@@ -8,16 +9,18 @@ const Arrow = () => (
 );
 
 export default function Missions() {
-  useEffect(() => {
-    document.title = 'Missions - TANESPACE';
-  }, []);
 
   return (
     <>
+      <SEO
+        title="Missions"
+        description="TANESPACE missions: The Silk Road of Space asteroid mining mission, HELIOS orbital debris sweeping, and beyond."
+        path="/missions"
+      />
       {/* Page Header */}
       <div className="ts-page-header" style={{minHeight: '70vh', display: 'flex', alignItems: 'flex-end'}}>
         <div className="ts-page-header__bg">
-          <img src="https://images.unsplash.com/photo-1462332420958-a05d1e002413?w=1920&q=80" alt="Missions Background" />
+          <img src="https://images.unsplash.com/photo-1462332420958-a05d1e002413?w=1920&q=80" alt="Missions Background" fetchpriority="high" />
         </div>
         <div className="ts-page-header__overlay"></div>
         <div className="ts-page-header__content" style={{paddingBottom: '4rem'}}>
@@ -36,7 +39,7 @@ export default function Missions() {
       {/* Mission 01: Silk Road */}
       <section className="ts-split">
         <div className="ts-split__image">
-          <img src="https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=960&q=80" alt="Silk Road Mission" />
+          <LazyImage src="https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=960&q=80" alt="Silk Road Mission" />
         </div>
         <div className="ts-split__content" style={{background: 'var(--ts-dark-02)'}}>
           <h2 className="ts-section__title" style={{marginBottom: '1.5rem'}}>The Silk Road<br /><strong>of Space</strong></h2>
@@ -68,7 +71,7 @@ export default function Missions() {
       {/* Mission 02: HELIOS */}
       <section className="ts-split" style={{flexDirection: 'row-reverse'}}>
         <div className="ts-split__image" style={{order: 2}}>
-          <img src="https://images.unsplash.com/photo-1446776858070-70c3d5ed6758?w=960&q=80" alt="HELIOS Mission" />
+          <LazyImage src="https://images.unsplash.com/photo-1446776858070-70c3d5ed6758?w=960&q=80" alt="HELIOS Mission" />
         </div>
         <div className="ts-split__content" style={{background: 'var(--ts-dark-03)', order: 1}}>
           <h2 className="ts-section__title" style={{marginBottom: '1.5rem'}}><strong>HELIOS</strong></h2>

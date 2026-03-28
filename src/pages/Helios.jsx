@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Accordion from '../components/Accordion';
+import SEO from '../components/SEO';
+import LazyImage from '../components/LazyImage';
 
 const Arrow = () => (
   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
@@ -9,9 +10,6 @@ const Arrow = () => (
 );
 
 export default function Helios() {
-  useEffect(() => {
-    document.title = 'HELIOS — Space Debris Laser Sweeper | TANESPACE';
-  }, []);
 
   const advantageItems = [
     {
@@ -34,10 +32,15 @@ export default function Helios() {
 
   return (
     <>
+      <SEO
+        title="HELIOS — Orbital Debris Sweeper"
+        description="HELIOS uses photon pressure lasers to deflect and deorbit space debris without physical contact, protecting Earth's orbital highways."
+        path="/mission/helios"
+      />
       {/* Page Header */}
       <div className="ts-page-header" style={{minHeight: '80vh', display: 'flex', alignItems: 'flex-end'}}>
         <div className="ts-page-header__bg">
-          <img src="https://images.unsplash.com/photo-1446776858070-70c3d5ed6758?w=1920&q=80" alt="Space Debris" />
+          <img src="https://images.unsplash.com/photo-1446776858070-70c3d5ed6758?w=1920&q=80" alt="Space Debris" fetchpriority="high" />
         </div>
         <div className="ts-page-header__overlay" style={{background: 'linear-gradient(to top, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.3) 100%)'}}></div>
         <div className="ts-page-header__content" style={{paddingBottom: '4rem'}}>
@@ -168,7 +171,7 @@ export default function Helios() {
 
       {/* Image Break */}
       <div className="ts-image-block ts-image-block--medium">
-        <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1920&q=80" alt="HELIOS Laser System" />
+        <LazyImage src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1920&q=80" alt="HELIOS Laser System" />
         <div className="ts-image-block__overlay"></div>
         <div className="ts-image-block__content">
           <div style={{fontSize: '0.75rem', letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--ts-gray-50)'}}>
@@ -242,7 +245,7 @@ export default function Helios() {
 
           <div className="ts-split" style={{marginTop: '3rem', minHeight: '500px'}}>
             <div className="ts-split__image">
-              <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=960&q=80" alt="HELIOS Vehicle" />
+              <LazyImage src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=960&q=80" alt="HELIOS Vehicle" />
             </div>
             <div className="ts-split__content" style={{background: 'var(--ts-dark-02)'}}>
               <h3 style={{fontSize: '0.75rem', fontWeight: 500, letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--ts-gray-50)', marginBottom: '2rem'}}>General Specifications</h3>

@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Accordion from '../components/Accordion';
+import SEO from '../components/SEO';
+import LazyImage from '../components/LazyImage';
 
 const Arrow = () => (
   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
@@ -9,9 +10,6 @@ const Arrow = () => (
 );
 
 export default function Mission() {
-  useEffect(() => {
-    document.title = 'Mission - TANESPACE';
-  }, []);
 
   const fuelLogisticsItems = [
     {
@@ -34,10 +32,15 @@ export default function Mission() {
 
   return (
     <>
+      <SEO
+        title="The Silk Road of Space"
+        description="TANESPACE's primary mission: harvesting asteroid water to build the world's first orbital fuel logistics network."
+        path="/mission"
+      />
       {/* Page Header */}
       <div className="ts-page-header" style={{minHeight: '70vh', display: 'flex', alignItems: 'flex-end'}}>
         <div className="ts-page-header__bg">
-          <img src="https://images.unsplash.com/photo-1462332420958-a05d1e002413?w=1920&q=80" alt="Mission Background" />
+          <img src="https://images.unsplash.com/photo-1462332420958-a05d1e002413?w=1920&q=80" alt="Mission Background" fetchpriority="high" />
         </div>
         <div className="ts-page-header__overlay"></div>
         <div className="ts-page-header__content" style={{paddingBottom: '4rem'}}>
@@ -106,7 +109,7 @@ export default function Mission() {
 
       {/* Image Break */}
       <div className="ts-image-block ts-image-block--medium">
-        <img src="https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=1920&q=80" alt="Asteroid Mining Concept" />
+        <LazyImage src="https://images.unsplash.com/photo-1614728263952-84ea256f9679?w=1920&q=80" alt="Asteroid Mining Concept" />
         <div className="ts-image-block__overlay"></div>
         <div className="ts-image-block__content">
           <p style={{fontSize: '0.75rem', letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--ts-gray-50)'}}>
@@ -187,7 +190,7 @@ export default function Mission() {
           </ul>
         </div>
         <div className="ts-split__image">
-          <img src="https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?w=960&q=80" alt="Silk Road of Space" />
+          <LazyImage src="https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?w=960&q=80" alt="Silk Road of Space" />
         </div>
       </section>
 

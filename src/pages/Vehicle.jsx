@@ -1,5 +1,6 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
+import LazyImage from '../components/LazyImage';
 
 const Arrow = () => (
   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
@@ -8,16 +9,18 @@ const Arrow = () => (
 );
 
 export default function Vehicle() {
-  useEffect(() => {
-    document.title = 'ASTRÆUS Vehicle - TANESPACE';
-  }, []);
 
   return (
     <>
+      <SEO
+        title="ASTRÆUS Fleet"
+        description="The ASTRÆUS family: ICARUS orbital thermal forge, CHRONOS deep-space relay, and AEGIS bio-dome station."
+        path="/vehicle"
+      />
       {/* Page Header */}
       <div className="ts-page-header" style={{minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
         <div className="ts-page-header__bg">
-          <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?w=1920&q=80" alt="ASTRÆUS Vehicle" />
+          <img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?w=1920&q=80" alt="ASTRÆUS Vehicle" fetchpriority="high" />
         </div>
         <div className="ts-page-header__overlay" style={{background: 'rgba(0,0,0,0.55)'}}></div>
         <div className="ts-page-header__content" style={{textAlign: 'center', padding: '0 2rem'}}>
@@ -67,7 +70,7 @@ export default function Vehicle() {
             </p>
           </div>
           <div>
-            <img src="https://images.unsplash.com/photo-1581822261290-991b38693d1b?w=800&q=80" alt="ASTRÆUS Technical" style={{width: '100%', filter: 'brightness(0.8)'}} />
+            <LazyImage src="https://images.unsplash.com/photo-1581822261290-991b38693d1b?w=800&q=80" alt="ASTRÆUS Technical" style={{width: '100%', filter: 'brightness(0.8)'}} />
             <p style={{fontSize: '0.75rem', color: 'var(--ts-gray-50)', marginTop: '0.5rem', fontFamily: "'IBM Plex Mono', monospace"}}>
               Fig. 1 — ASTRÆUS in deployed configuration (artist's rendering)
             </p>
@@ -159,7 +162,7 @@ export default function Vehicle() {
 
       {/* Vehicle Image */}
       <div className="ts-image-block ts-image-block--hero">
-        <img src="https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=1920&q=80" alt="ASTRÆUS in Space" />
+        <LazyImage src="https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=1920&q=80" alt="ASTRÆUS in Space" />
         <div className="ts-image-block__overlay"></div>
         <div className="ts-image-block__content">
           <div className="ts-section__tag" style={{color: 'var(--ts-teal)'}}>ASTRÆUS Mk.I</div>

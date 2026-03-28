@@ -1,16 +1,19 @@
-import { useEffect } from 'react';
+import SEO from '../components/SEO';
+import LazyImage from '../components/LazyImage';
 
 export default function Technology() {
-  useEffect(() => {
-    document.title = 'Technology - TANESPACE';
-  }, []);
 
   return (
     <>
+      <SEO
+        title="Technology"
+        description="The advanced ion propulsion, AI autonomy, water electrolysis, and vapor capture systems powering the TANESPACE mission."
+        path="/technology"
+      />
       {/* Page Header */}
       <div className="ts-page-header" style={{ minHeight: '60vh', display: 'flex', alignItems: 'flex-end' }}>
         <div className="ts-page-header__bg">
-          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=80" alt="Technology" />
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=80" alt="Technology" fetchpriority="high" />
         </div>
         <div className="ts-page-header__overlay"></div>
         <div className="ts-page-header__content" style={{ paddingBottom: '4rem' }}>
@@ -34,7 +37,7 @@ export default function Technology() {
       {/* Tech 1: Ion Thrusters */}
       <section className="ts-split">
         <div className="ts-split__image">
-          <img src="https://images.unsplash.com/photo-1516849677043-ef67c9557e16?w=960&q=80" alt="Ion Thrusters" />
+          <LazyImage src="https://images.unsplash.com/photo-1516849677043-ef67c9557e16?w=960&q=80" alt="Ion Thrusters" />
         </div>
         <div className="ts-split__content" style={{ background: 'var(--ts-dark-02)' }}>
           <h2 style={{ fontSize: '2rem', fontWeight: 600, marginBottom: '1.5rem' }}>
@@ -58,7 +61,7 @@ export default function Technology() {
       {/* Tech 2: Solar Thermal */}
       <section className="ts-split" style={{ direction: 'rtl' }}>
         <div className="ts-split__image">
-          <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=960&q=80" alt="Solar Thermal" />
+          <LazyImage src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=960&q=80" alt="Solar Thermal" />
         </div>
         <div className="ts-split__content" style={{ background: 'var(--ts-dark-03)', direction: 'ltr' }}>
           <h2 style={{ fontSize: '2rem', fontWeight: 600, marginBottom: '1.5rem' }}>
@@ -82,7 +85,7 @@ export default function Technology() {
       {/* Tech 3: Vapor Capture */}
       <section className="ts-split">
         <div className="ts-split__image">
-          <img src="https://images.unsplash.com/photo-1454789548928-9efd52dc4031?w=960&q=80" alt="Vapor Capture" />
+          <LazyImage src="https://images.unsplash.com/photo-1454789548928-9efd52dc4031?w=960&q=80" alt="Vapor Capture" />
         </div>
         <div className="ts-split__content" style={{ background: 'var(--ts-dark-02)' }}>
           <h2 style={{ fontSize: '2rem', fontWeight: 600, marginBottom: '1.5rem' }}>
@@ -105,7 +108,7 @@ export default function Technology() {
       {/* Tech 4: Electrolysis */}
       <section className="ts-split" style={{ direction: 'rtl' }}>
         <div className="ts-split__image">
-          <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=960&q=80" alt="Electrolysis Unit" />
+          <LazyImage src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=960&q=80" alt="Electrolysis Unit" />
         </div>
         <div className="ts-split__content" style={{ background: 'var(--ts-dark-03)', direction: 'ltr' }}>
           <h2 style={{ fontSize: '2rem', fontWeight: 600, marginBottom: '1.5rem' }}>

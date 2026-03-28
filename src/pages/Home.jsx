@@ -1,17 +1,21 @@
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import SEO from '../components/SEO'
+import LazyImage from '../components/LazyImage'
 
 const Arrow = () => <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
 
 export default function Home() {
-  useEffect(() => { document.title = 'TANESPACE' }, [])
 
   return (
     <>
+      <SEO
+        path="/"
+        description="Harvesting water from near-Earth asteroids to produce rocket propellant in orbit — building the Silk Road of Space."
+      />
       {/* Hero Section */}
       <section className="ts-hero">
         <div className="ts-hero__bg">
-          <img src={import.meta.env.BASE_URL + 'assets/images/silk-road-space-harvest.jpg'} alt="Deep Space" />
+          <img src={import.meta.env.BASE_URL + 'assets/images/silk-road-space-harvest.jpg'} alt="Deep Space" fetchpriority="high" />
         </div>
         <div className="ts-hero__overlay"></div>
         <div className="ts-hero__content">
@@ -46,7 +50,7 @@ export default function Home() {
 
       {/* Image Break */}
       <div className="ts-image-block ts-image-block--medium">
-        <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1920&q=80" alt="Asteroid Mining" />
+        <LazyImage src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1920&q=80" alt="Asteroid Mining" />
         <div className="ts-image-block__overlay"></div>
         <div className="ts-image-block__content">
           <h2 style={{fontSize:'clamp(1.5rem, 3vw, 2.5rem)',fontWeight:300}}>
@@ -92,7 +96,7 @@ export default function Home() {
       {/* Split Section - Vehicle Preview */}
       <section className="ts-split" style={{marginTop:'4rem'}}>
         <div className="ts-split__image">
-          <img src="https://images.unsplash.com/photo-1457364559154-aa2644600ebb?w=960&q=80" alt="ASTRÆUS Vehicle" />
+          <LazyImage src="https://images.unsplash.com/photo-1457364559154-aa2644600ebb?w=960&q=80" alt="ASTRÆUS Vehicle" />
         </div>
         <div className="ts-split__content">
           <h2 className="ts-section__title" style={{marginBottom:'2rem'}}>

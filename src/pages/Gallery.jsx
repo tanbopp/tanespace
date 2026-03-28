@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
+import LazyImage from '../components/LazyImage';
 
 const Arrow = () => (
   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
@@ -33,16 +35,17 @@ const filters = [
 export default function Gallery() {
   const [activeFilter, setActiveFilter] = useState('all');
 
-  useEffect(() => {
-    document.title = 'Gallery - TANESPACE';
-  }, []);
-
   return (
     <>
+      <SEO
+        title="Gallery"
+        description="Visual gallery of TANESPACE missions, ASTRÆUS vehicles, asteroid concepts, and deep space documentation."
+        path="/gallery"
+      />
       {/* Page Header */}
       <div className="ts-page-header" style={{ minHeight: '50vh', display: 'flex', alignItems: 'flex-end' }}>
         <div className="ts-page-header__bg">
-          <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1920&q=80" alt="Gallery" />
+          <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1920&q=80" alt="Gallery" fetchpriority="high" />
         </div>
         <div className="ts-page-header__overlay"></div>
         <div className="ts-page-header__content" style={{ paddingBottom: '4rem' }}>
@@ -82,7 +85,7 @@ export default function Gallery() {
               data-category={item.category}
               style={{ opacity: activeFilter === 'all' || item.category === activeFilter ? 1 : 0.2, transition: 'opacity 0.3s' }}
             >
-              <img src={item.src} alt={item.alt} />
+              <LazyImage src={item.src} alt={item.alt} />
               <div className="ts-gallery__item__overlay">
                 <div className="ts-gallery__item__caption">{item.caption}</div>
               </div>
@@ -93,7 +96,7 @@ export default function Gallery() {
 
       {/* Featured Image */}
       <div className="ts-image-block ts-image-block--hero" style={{ marginTop: '2px' }}>
-        <img src="https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=1920&q=80" alt="The Silk Road of Space" />
+        <LazyImage src="https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=1920&q=80" alt="The Silk Road of Space" />
         <div className="ts-image-block__overlay"></div>
         <div className="ts-image-block__content" style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <div className="ts-section__tag" style={{ color: 'var(--ts-teal)', textAlign: 'center' }}>Featured</div>

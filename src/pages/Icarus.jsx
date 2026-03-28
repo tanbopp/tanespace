@@ -1,5 +1,6 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
+import LazyImage from '../components/LazyImage';
 
 const Arrow = () => (
   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
@@ -8,16 +9,18 @@ const Arrow = () => (
 );
 
 export default function Icarus() {
-  useEffect(() => {
-    document.title = 'Icarus Thermal Forge — Orbital Factory | TANESPACE';
-  }, []);
 
   return (
     <>
+      <SEO
+        title="ICARUS — Orbital Thermal Forge"
+        description="ICARUS is a flower-shaped solar thermal forge that manufactures structural components directly in orbit using concentrated solar energy."
+        path="/vehicle/icarus"
+      />
       {/* Page Header */}
       <div className="ts-page-header" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <div className="ts-page-header__bg">
-          <img src={import.meta.env.BASE_URL + 'assets/images/icarus/ICARUS-Project_Thermal-Forge_Solar-Energy_Extrusion-Unit.jpg'} alt="Icarus Thermal Forge" />
+          <img src={import.meta.env.BASE_URL + 'assets/images/icarus/ICARUS-Project_Thermal-Forge_Solar-Energy_Extrusion-Unit.jpg'} alt="Icarus Thermal Forge" fetchpriority="high" />
         </div>
         <div className="ts-page-header__overlay" style={{ background: 'rgba(0,0,0,0.30)' }}></div>
         <div className="ts-page-header__content" style={{ textAlign: 'center', padding: '0 2rem' }}>
@@ -86,7 +89,7 @@ export default function Icarus() {
 
       {/* Image Break */}
       <div className="ts-image-block ts-image-block--medium">
-        <img src={import.meta.env.BASE_URL + 'assets/images/icarus/d2CLd.jpg'} alt="Solar Thermal Concentrator" />
+        <LazyImage src={import.meta.env.BASE_URL + 'assets/images/icarus/d2CLd.jpg'} alt="Solar Thermal Concentrator" />
         <div className="ts-image-block__overlay"></div>
         <div className="ts-image-block__content">
           <div style={{ fontSize: '0.75rem', letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--ts-white)' }}>Icarus Thermal Forge — Artist's Concept</div>
@@ -134,7 +137,7 @@ export default function Icarus() {
 
           <div className="ts-split" style={{ marginTop: '3rem', minHeight: '520px' }}>
             <div className="ts-split__image">
-              <img src={import.meta.env.BASE_URL + 'assets/images/icarus/humanity-largest-orbital-thermal-forge.jpg'} alt="Icarus" />
+              <LazyImage src={import.meta.env.BASE_URL + 'assets/images/icarus/humanity-largest-orbital-thermal-forge.jpg'} alt="Icarus" />
             </div>
             <div className="ts-split__content" style={{ background: 'var(--ts-dark-02)' }}>
               <h3 style={{ fontSize: '0.75rem', fontWeight: 500, letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--ts-gray-50)', marginBottom: '2rem' }}>General Specifications</h3>

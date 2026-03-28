@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Accordion from '../components/Accordion';
+import SEO from '../components/SEO';
+import LazyImage from '../components/LazyImage';
 
 const Arrow = () => (
   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
@@ -28,16 +29,17 @@ const advantageItems = [
 ];
 
 export default function Aegis() {
-  useEffect(() => {
-    document.title = 'Aegis Bio-Dome Seed — Living Ecosystem | TANESPACE';
-  }, []);
-
   return (
     <>
+      <SEO
+        title="AEGIS — Bio-Dome Seed Station"
+        description="AEGIS is the first rotating space station with real 1G gravity, designed for biological research and long-duration human habitation."
+        path="/vehicle/aegis"
+      />
       {/* Page Header */}
       <div className="ts-page-header" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <div className="ts-page-header__bg">
-          <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=1920&q=80" alt="Aegis Bio-Dome" />
+          <img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=1920&q=80" alt="Aegis Bio-Dome" fetchpriority="high" />
         </div>
         <div className="ts-page-header__overlay" style={{ background: 'rgba(0,0,0,0.55)' }}></div>
         <div className="ts-page-header__content" style={{ textAlign: 'center', padding: '0 2rem' }}>
@@ -113,7 +115,7 @@ export default function Aegis() {
 
       {/* Image Break */}
       <div className="ts-image-block ts-image-block--medium">
-        <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&q=80" alt="Bio-Dome Interior" />
+        <LazyImage src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&q=80" alt="Bio-Dome Interior" />
         <div className="ts-image-block__overlay"></div>
         <div className="ts-image-block__content">
           <div style={{ fontSize: '0.75rem', letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--ts-gray-50)' }}>AEGIS BIO-DOME SEED — Artist's Concept</div>
@@ -173,7 +175,7 @@ export default function Aegis() {
 
           <div className="ts-split" style={{ marginTop: '3rem', minHeight: '560px' }}>
             <div className="ts-split__image">
-              <img src="https://images.unsplash.com/photo-1560762484-813fc97650a0?w=960&q=80" alt="Aegis" />
+              <LazyImage src="https://images.unsplash.com/photo-1560762484-813fc97650a0?w=960&q=80" alt="Aegis" />
             </div>
             <div className="ts-split__content" style={{ background: 'var(--ts-dark-02)' }}>
               <h3 style={{ fontSize: '0.75rem', fontWeight: 500, letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--ts-gray-50)', marginBottom: '2rem' }}>General Specifications</h3>

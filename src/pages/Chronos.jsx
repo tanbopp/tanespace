@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Accordion from '../components/Accordion';
+import SEO from '../components/SEO';
+import LazyImage from '../components/LazyImage';
 
 const Arrow = () => (
   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
@@ -28,16 +29,17 @@ const advantageItems = [
 ];
 
 export default function Chronos() {
-  useEffect(() => {
-    document.title = 'Chronos CDSR-1 — Interplanetary Internet | TANESPACE';
-  }, []);
-
   return (
     <>
+      <SEO
+        title="CHRONOS — Deep-Space Relay"
+        description="CHRONOS CDSR-1 is the first interplanetary internet relay, enabling real-time high-bandwidth communication between Earth, Moon, and Mars."
+        path="/vehicle/chronos"
+      />
       {/* Page Header */}
       <div className="ts-page-header" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
         <div className="ts-page-header__bg">
-          <img src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?w=1920&q=80" alt="Chronos Deep-Space Relay" />
+          <img src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?w=1920&q=80" alt="Chronos Deep-Space Relay" fetchpriority="high" />
         </div>
         <div className="ts-page-header__overlay" style={{ background: 'rgba(0,0,0,0.55)' }}></div>
         <div className="ts-page-header__content" style={{ textAlign: 'center', padding: '0 2rem' }}>
@@ -113,7 +115,7 @@ export default function Chronos() {
 
       {/* Image Break */}
       <div className="ts-image-block ts-image-block--medium">
-        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80" alt="Deep Space Laser Communication" />
+        <LazyImage src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80" alt="Deep Space Laser Communication" />
         <div className="ts-image-block__overlay"></div>
         <div className="ts-image-block__content">
           <div style={{ fontSize: '0.75rem', letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--ts-gray-50)' }}>CHRONOS CDSR-1 — Artist's Concept</div>
@@ -173,7 +175,7 @@ export default function Chronos() {
 
           <div className="ts-split" style={{ marginTop: '3rem', minHeight: '520px' }}>
             <div className="ts-split__image">
-              <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=960&q=80" alt="Chronos" />
+              <LazyImage src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=960&q=80" alt="Chronos" />
             </div>
             <div className="ts-split__content" style={{ background: 'var(--ts-dark-02)' }}>
               <h3 style={{ fontSize: '0.75rem', fontWeight: 500, letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--ts-gray-50)', marginBottom: '2rem' }}>General Specifications</h3>

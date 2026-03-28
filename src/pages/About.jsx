@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Accordion from '../components/Accordion';
+import SEO from '../components/SEO';
+import LazyImage from '../components/LazyImage';
 
 const Arrow = () => (
   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
@@ -24,16 +25,17 @@ const faqItems = [
 ];
 
 export default function About() {
-  useEffect(() => {
-    document.title = 'About - TANESPACE';
-  }, []);
-
   return (
     <>
+      <SEO
+        title="About TANESPACE"
+        description="Meet the team and mission behind TANESPACE — building the Silk Road of Space through asteroid water harvesting."
+        path="/about"
+      />
       {/* Page Header */}
       <div className="ts-page-header" style={{ minHeight: '60vh', display: 'flex', alignItems: 'flex-end' }}>
         <div className="ts-page-header__bg">
-          <img src="https://images.unsplash.com/photo-1446776858070-70c3d5ed6758?w=1920&q=80" alt="About TANESPACE" />
+          <img src="https://images.unsplash.com/photo-1446776858070-70c3d5ed6758?w=1920&q=80" alt="About TANESPACE" fetchpriority="high" />
         </div>
         <div className="ts-page-header__overlay"></div>
         <div className="ts-page-header__content" style={{ paddingBottom: '4rem' }}>
@@ -244,28 +246,28 @@ export default function About() {
 
         <div className="ts-team" style={{ marginTop: '2rem' }}>
           <div className="ts-team__member">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Team Member" />
+            <LazyImage src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" alt="Team Member" />
             <div className="ts-team__info">
               <div className="ts-team__name">Dr. Arjuna Pratama</div>
               <div className="ts-team__role">CEO &amp; Co-Founder</div>
             </div>
           </div>
           <div className="ts-team__member">
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d57734a5a2?w=400&q=80" alt="Team Member" />
+            <LazyImage src="https://images.unsplash.com/photo-1573496359142-b8d57734a5a2?w=400&q=80" alt="Team Member" />
             <div className="ts-team__info">
               <div className="ts-team__name">Dr. Sari Dewi Kusuma</div>
               <div className="ts-team__role">CTO &amp; Co-Founder</div>
             </div>
           </div>
           <div className="ts-team__member">
-            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" alt="Team Member" />
+            <LazyImage src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80" alt="Team Member" />
             <div className="ts-team__info">
               <div className="ts-team__name">Prof. Bima Sakti Utomo</div>
               <div className="ts-team__role">Chief Science Officer</div>
             </div>
           </div>
           <div className="ts-team__member">
-            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80" alt="Team Member" />
+            <LazyImage src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80" alt="Team Member" />
             <div className="ts-team__info">
               <div className="ts-team__name">Dr. Maya Lestari</div>
               <div className="ts-team__role">VP of Engineering</div>
