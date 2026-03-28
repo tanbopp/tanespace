@@ -6,7 +6,7 @@ import './styles.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter basename="/tanespace-v2/">
+    <BrowserRouter basename="/tanespace/">
       <App />
     </BrowserRouter>
   </StrictMode>,
