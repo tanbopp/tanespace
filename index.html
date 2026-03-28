@@ -4,7 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="TANESPACE - Pioneering asteroid water harvesting for orbital refueling. Building the Silk Road of Space." />
-    <title>TANESPACE — Asteroid Water Mining for Orbital Refueling</title>
+    <title>Tanespace</title>
+    <!-- Favicon -->
+    <link rel="icon" href="/tanespace/favicon/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/tanespace/favicon/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/tanespace/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/tanespace/favicon/site.webmanifest" />
     <meta name="description" content="TANESPACE harvests water from near-Earth asteroids, splits it into rocket propellant in orbit — unlocking sustainable interplanetary travel." />
     <meta name="keywords" content="asteroid mining, space fuel, orbital refueling, water harvesting, interplanetary travel, TANESPACE, ASTRÆUS, rocket propellant" />
     <meta name="author" content="TANESPACE" />
@@ -46,7 +51,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <link rel="preconnect" href="https://images.unsplash.com" />
-    <script type="module" crossorigin src="/tanespace/assets/index-Ctswm6vI.js"></script>
+    <!-- GitHub Pages SPA redirect handler -->
+    <script>
+      (function(l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&')
+          });
+          window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded[0] +
+            (decoded.slice(1).length > 0 ? '?' + decoded.slice(1).join('&') : '') +
+            l.hash
+          );
+        }
+      }(window.location))
+    </script>
+    <script type="module" crossorigin src="/tanespace/assets/index-B1CsMZCp.js"></script>
     <link rel="modulepreload" crossorigin href="/tanespace/assets/rolldown-runtime-DF2fYuay.js">
     <link rel="modulepreload" crossorigin href="/tanespace/assets/vendor-D9LQ97Nf.js">
     <link rel="stylesheet" crossorigin href="/tanespace/assets/index-Cp7yng-F.css">
