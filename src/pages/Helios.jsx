@@ -35,7 +35,7 @@ export default function Helios() {
       <SEO
         title="HELIOS — Orbital Debris Sweeper"
         description="HELIOS uses photon pressure lasers to deflect and deorbit space debris without physical contact, protecting Earth's orbital highways."
-        path="/mission/helios"
+        path="/missions/helios"
       />
       {/* Page Header */}
       <div className="ts-page-header" style={{minHeight: '80vh', display: 'flex', alignItems: 'flex-end'}}>

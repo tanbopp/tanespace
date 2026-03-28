@@ -27,7 +27,7 @@ export default function Home() {
             Harvesting water from asteroids. Refueling in orbit. Unlocking a new era of sustainable interplanetary travel.
           </p>
           <div className="ts-hero__actions">
-            <Link to="/mission" className="ts-btn ts-btn--primary">
+            <Link to="/missions/silk-road" className="ts-btn ts-btn--primary">
               Explore Mission <Arrow />
             </Link>
           </div>
@@ -43,7 +43,7 @@ export default function Home() {
         <p className="ts-section__desc">
           The greatest challenge in space exploration is Earth's gravity. Sending fuel from Earth to orbit is enormously expensive. TANESPACE takes a revolutionary approach: harvesting water from near-Earth asteroids, splitting it into liquid Hydrogen and Oxygen — rocket propellant — directly in space.
         </p>
-        <Link to="/mission" className="ts-btn ts-btn--teal">
+        <Link to="/missions/silk-road" className="ts-btn ts-btn--teal">
           Learn More About Our Mission <Arrow />
         </Link>
       </section>
@@ -74,7 +74,7 @@ export default function Home() {
             <p className="ts-card__desc">
               Refueling the tanks of spacecraft bound for Mars or Jupiter so they can carry more cargo instead of fuel from Earth. Every kilogram not launched from Earth means more useful payload.
             </p>
-            <Link to="/mission" className="ts-card__link">Learn more <Arrow /></Link>
+            <Link to="/missions/silk-road" className="ts-card__link">Learn more <Arrow /></Link>
           </div>
           <div className="ts-card">
             <h3 className="ts-card__title">Life Support System</h3>

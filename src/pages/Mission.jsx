@@ -35,7 +35,7 @@ export default function Mission() {
       <SEO
         title="The Silk Road of Space"
         description="TANESPACE's primary mission: harvesting asteroid water to build the world's first orbital fuel logistics network."
-        path="/mission"
+        path="/missions/silk-road"
       />
       {/* Page Header */}
       <div className="ts-page-header" style={{minHeight: '70vh', display: 'flex', alignItems: 'flex-end'}}>

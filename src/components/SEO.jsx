@@ -11,7 +11,7 @@ export default function SEO({
   path = '',
   type = 'website',
 }) {
-  const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} — Asteroid Water Mining for Orbital Refueling`;
+  const fullTitle = title ? `Tanespace - ${title}` : 'Tanespace';
   const canonical = `${SITE_URL}${path}`;
 
   return (

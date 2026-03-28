@@ -12,7 +12,6 @@ const Chronos = lazy(() => import('./pages/Chronos'))
 const Aegis = lazy(() => import('./pages/Aegis'))
 const Technology = lazy(() => import('./pages/Technology'))
 const About = lazy(() => import('./pages/About'))
-const Gallery = lazy(() => import('./pages/Gallery'))
 
 export default function App() {
   return (
@@ -21,15 +20,14 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/missions" element={<Missions />} />
-          <Route path="/mission" element={<Mission />} />
-          <Route path="/mission/helios" element={<Helios />} />
+          <Route path="/missions/silk-road" element={<Mission />} />
+          <Route path="/missions/helios" element={<Helios />} />
           <Route path="/vehicle" element={<Vehicle />} />
           <Route path="/vehicle/icarus" element={<Icarus />} />
           <Route path="/vehicle/chronos" element={<Chronos />} />
           <Route path="/vehicle/aegis" element={<Aegis />} />
           <Route path="/technology" element={<Technology />} />
           <Route path="/about" element={<About />} />
-          <Route path="/gallery" element={<Gallery />} />
         </Routes>
       </Suspense>
     </Layout>

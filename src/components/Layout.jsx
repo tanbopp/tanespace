@@ -39,8 +39,9 @@ export default function Layout({ children }) {
   }, [])
 
   const isActive = (...paths) => paths.includes(path)
-  const isMissionGroup = isActive('/missions', '/mission', '/mission/helios')
+  const isMissionGroup = isActive('/missions', '/missions/silk-road', '/missions/helios')
   const isFleetGroup = isActive('/vehicle', '/vehicle/icarus', '/vehicle/chronos', '/vehicle/aegis')
+  const isAboutGroup = isActive('/about', '/technology')
 
   const toggleDropdown = (name, e) => {
     e.stopPropagation()
@@ -79,19 +80,19 @@ export default function Layout({ children }) {
               </button>
               <div className={`ts-nav-group__dropdown${openDropdown === 'missions' ? ' open' : ''}`}>
                 <Link to="/missions" className={path === '/missions' ? 'active' : ''}>All Missions</Link>
-                <Link to="/mission" className={path === '/mission' ? 'active' : ''}>Silk Road</Link>
-                <Link to="/mission/helios" className={path === '/mission/helios' ? 'active' : ''}>HELIOS</Link>
+                <Link to="/missions/silk-road" className={path === '/missions/silk-road' ? 'active' : ''}>Silk Road</Link>
+                <Link to="/missions/helios" className={path === '/missions/helios' ? 'active' : ''}>HELIOS</Link>
               </div>
             </div>
 
             <div className="ts-nav-group">
               <button
-                className={`ts-nav-group__toggle${isFleetGroup || openDropdown === 'fleet' ? ' active' : ''}`}
-                onClick={(e) => toggleDropdown('fleet', e)}
+                className={`ts-nav-group__toggle${isFleetGroup || openDropdown === 'vehicles' ? ' active' : ''}`}
+                onClick={(e) => toggleDropdown('vehicles', e)}
               >
-                Fleet <ChevronSvg />
+                Vehicles <ChevronSvg />
               </button>
-              <div className={`ts-nav-group__dropdown${openDropdown === 'fleet' ? ' open' : ''}`}>
+              <div className={`ts-nav-group__dropdown${openDropdown === 'vehicles' ? ' open' : ''}`}>
                 <Link to="/vehicle" className={path === '/vehicle' ? 'active' : ''}>ASTRÆUS</Link>
                 <Link to="/vehicle/icarus" className={path === '/vehicle/icarus' ? 'active' : ''}>Icarus</Link>
                 <Link to="/vehicle/chronos" className={path === '/vehicle/chronos' ? 'active' : ''}>Chronos</Link>
@@ -99,8 +100,18 @@ export default function Layout({ children }) {
               </div>
             </div>
 
-            <Link to="/technology" className={path === '/technology' ? 'active' : ''}>Technology</Link>
-            <Link to="/about" className={path === '/about' ? 'active' : ''}>About</Link>
+            <div className="ts-nav-group">
+              <button
+                className={`ts-nav-group__toggle${isAboutGroup || openDropdown === 'about' ? ' active' : ''}`}
+                onClick={(e) => toggleDropdown('about', e)}
+              >
+                About <ChevronSvg />
+              </button>
+              <div className={`ts-nav-group__dropdown${openDropdown === 'about' ? ' open' : ''}`}>
+                <Link to="/about" className={path === '/about' ? 'active' : ''}>Tanespace</Link>
+                <Link to="/technology" className={path === '/technology' ? 'active' : ''}>Technology</Link>
+              </div>
+            </div>
           </nav>
 
           <button className="ts-mobile-toggle" onClick={() => setMobileOpen(v => !v)}>
@@ -116,25 +127,10 @@ export default function Layout({ children }) {
       <footer className="ts-footer">
         <div className="ts-footer__inner">
           <div className="ts-footer__col">
-            <h4>Explore</h4>
             <Link to="/missions">Missions</Link>
-            <Link to="/vehicle">ASTRÆUS</Link>
-            <Link to="/technology">Technology</Link>
-            <Link to="/gallery">Gallery</Link>
-          </div>
-          <div className="ts-footer__col">
-            <h4>Company</h4>
+            <Link to="/vehicle">Vehicles</Link>
             <Link to="/about">About</Link>
-            <a href="#">Careers</a>
-            <a href="#">Press</a>
-            <a href="#">Partners</a>
-          </div>
-          <div className="ts-footer__col">
-            <h4>Connect</h4>
-            <a href="#">Twitter / X</a>
-            <a href="#">LinkedIn</a>
-            <a href="#">YouTube</a>
-            <a href="#">Contact</a>
+            <a href="mailto:work.sultanrahmahtulloh@gmail.com">Contact</a>
           </div>
         </div>
         <div className="ts-footer__bottom">

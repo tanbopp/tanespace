@@ -64,7 +64,7 @@ export default function Missions() {
             <li>Electrolyze water into LH₂ and LOX propellant on-site</li>
             <li>Return to Lagrange Point L2 as a refueling depot</li>
           </ul>
-          <Link to="/mission" className="ts-btn ts-btn--primary" style={{alignSelf: 'flex-start'}}>Explore Silk Road Mission <Arrow /></Link>
+          <Link to="/missions/silk-road" className="ts-btn ts-btn--primary" style={{alignSelf: 'flex-start'}}>Explore Silk Road Mission <Arrow /></Link>
         </div>
       </section>
 
@@ -97,7 +97,7 @@ export default function Missions() {
             <li>Ablate debris surface to generate de-orbit thrust</li>
             <li>No physical contact — zero collision risk to HELIOS itself</li>
           </ul>
-          <Link to="/mission/helios" className="ts-btn ts-btn--primary" style={{alignSelf: 'flex-start'}}>Explore HELIOS Mission <Arrow /></Link>
+          <Link to="/missions/helios" className="ts-btn ts-btn--primary" style={{alignSelf: 'flex-start'}}>Explore HELIOS Mission <Arrow /></Link>
         </div>
       </section>
 
